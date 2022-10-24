@@ -1,4 +1,4 @@
-name: Run Azure Login with OpenID Connect
+name: ADF Batch source code Upload to Azure Blob
 on: [push]
 
 permissions:
