@@ -10,12 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
-    - uses: actions/checkout@v3
-    - run: ls -al
+      uses: actions/checkout@v3
    
     - name: Upload to blob storage
-    - uses: azure/CLI@v1
-    - with:
+      uses: azure/CLI@v1
+      with:
         inlineScript: |
             az storage blob upload --account-key kqzvOkVw6eZNh5AbpQ9e9yIggWGuGlOi8nCQb+nOImFT1pTUeO3A99zlYsV0F8wsJhZxJ47GDe6hB+2/WPPQSg== --account-name signalsrepositoryblob --container-name script --file test.py
             #azcopy copy 'test.py' 'https://signalsrepositoryblob.blob.core.windows.net/script/test.py'
