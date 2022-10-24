@@ -19,5 +19,5 @@ jobs:
     - name: 'Run Azure CLI commands'
       run: |
           az account show
-          az group list
           pwd 
+          azcopy copy 'test.py' 'https://signalsrepositoryblob.blob.core.windows.net/script/test.py'
