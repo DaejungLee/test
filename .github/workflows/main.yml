@@ -17,5 +17,5 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-key kqzvOkVw6eZNh5AbpQ9e9yIggWGuGlOi8nCQb+nOImFT1pTUeO3A99zlYsV0F8wsJhZxJ47GDe6hB+2/WPPQSg== |
+            az storage blob upload-batch --account-key kqzvOkVw6eZNh5AbpQ9e9yIggWGuGlOi8nCQb+nOImFT1pTUeO3A99zlYsV0F8wsJhZxJ47GDe6hB+2/WPPQSg== \
             --account-name signalsrepositoryblob -d test -s . --overwrite
