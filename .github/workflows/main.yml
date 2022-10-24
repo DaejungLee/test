@@ -6,18 +6,23 @@ permissions:
       contents: read
       
 jobs: 
-  build-and-deploy:
+  Az-blob-upload:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Az CLI login'
-      uses: azure/login@v1
-      with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    #- name: 'Az CLI login'
+    #  uses: azure/login@v1
+    #  with:
+    #      client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    #      tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    #      subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
-    - name: 'Run Azure CLI commands'
-      run: |
-          az account show
-          pwd 
-          azcopy copy 'test.py' 'https://signalsrepositoryblob.blob.core.windows.net/script/test.py'
+    #- name: 'Run Azure CLI commands'
+    #  run: |
+    #      pwd 
+                    
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+            az storage blob upload --account-key kqzvOkVw6eZNh5AbpQ9e9yIggWGuGlOi8nCQb+nOImFT1pTUeO3A99zlYsV0F8wsJhZxJ47GDe6hB+2/WPPQSg== --account-name signalsrepositoryblob --container-name script --file test.py
+            #azcopy copy 'test.py' 'https://signalsrepositoryblob.blob.core.windows.net/script/test.py'
